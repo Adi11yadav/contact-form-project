@@ -22,5 +22,3 @@ This project is a **responsive and interactive contact form** created using **HT
 - Responsive media queries
 - Icon images from public sources (Flaticon)
 
-**live Demo**
-- https://adi11yadav.github.io/contact-form-project/
