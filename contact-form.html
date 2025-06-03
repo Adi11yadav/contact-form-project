@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1f2f98, #6f42c1);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .logo-container img {
+      width: 100px;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 450px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: #00c3ff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #008ecc;
+    }
+
+    .error {
+      color: #ffcccc;
+      font-size: 13px;
+    }
+
+    .success {
+      color: #caffd0;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .social-icons {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .follow-text {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+
+    .social-icons img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.2s;
+      filter: drop-shadow(0 0 2px white);
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 480px) {
+      .form-container {
+        width: 90%;
+      }
+
+      .social-icons img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2048px-React-icon.svg.png" alt="Logo">
+  </div>
+
+  <h2>Contact Us</h2>
+
+  <div class="form-container">
+    <form id="contactForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name">
+      <div id="nameError" class="error"></div>
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email">
+      <div id="emailError" class="error"></div>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+      <div id="messageError" class="error"></div>
+
+      <button type="submit">Submit</button>
+      <div id="successMessage" class="success"></div>
+    </form>
+  </div>
+
+  <div class="social-icons">
+    <p class="follow-text">Follow us on:</p>
+    <a href="https://www.linkedin.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" title="LinkedIn">
+    </a>
+    <a href="https://www.instagram.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" title="Instagram">
+    </a>
+    <a href="https://www.facebook.com" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" title="Facebook">
+    </a>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Clear messages
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('messageError').textContent = '';
+      document.getElementById('successMessage').textContent = '';
+
+      // Values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const emailPattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      let valid = true;
+
+      if (name === '') {
+        document.getElementById('nameError').textContent = 'Name is required';
+        valid = false;
+      }
+
+      if (email === '') {
+        document.getElementById('emailError').textContent = 'Email is required';
+        valid = false;
+      } else if (!emailPattern.test(email)) {
+        document.getElementById('emailError').textContent = 'Invalid email format';
+        valid = false;
+      }
+
+      if (message === '') {
+        document.getElementById('messageError').textContent = 'Message is required';
+        valid = false;
+      }
+
+      if (valid) {
+        document.getElementById('successMessage').textContent = 'Form submitted successfully!';
+        document.getElementById('contactForm').reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
