@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #1f2f98, #6f42c1);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.logo-container img {
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  margin-top: 15px;
+  background-color: #00c3ff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #008ecc;
+}
+
+.error {
+  color: #ffcccc;
+  font-size: 13px;
+}
+
+.success {
+  color: #caffd0;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.social-icons {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.follow-text {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s;
+  filter: drop-shadow(0 0 2px white);
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 90%;
+  }
+
+  .social-icons img {
+    width: 32px;
+    height: 32px;
+  }
+}
